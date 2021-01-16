@@ -1,6 +1,6 @@
 # Comic Book Vault
 
-The Project 3 Starter Kit is a highly opinionated, preconfigured MVC-style full-stack application intended to satisfy the stated requirements and additional requirements of Project 3. It comes with a prerolled authentication system, some cleanup from the project 2 starter, and eslint configuration.
+Comic Book Vault is an application that will allow the user to index his collection of comic books in one place. Allowing them to see what they have, and giving them the option to add comic books to a to-buy or wish list so that they know what to keep an eye out for when they are shopping for more.
 
 ## What this README explains.
 
