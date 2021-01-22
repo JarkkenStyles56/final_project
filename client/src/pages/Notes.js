@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import NoteForm from '../components/NoteForm';
+// import ComicBook from '../components/ComicBook';
 
 const Notes = function () {
     const [notes, setNotes] = useState([]);
@@ -33,6 +34,8 @@ const Notes = function () {
                 })}
             </ol>
             <NoteForm didSubmit={refreshParent} />
+
+            {/* <ComicBook /> */}
         </div>
     );
 };

@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 require('dotenv').config();
 
 // Configuration check.
@@ -35,6 +37,23 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add all our backend routes
 app.use(routes);
+
+// Shortboxed API (DELETE if not going to be used)
+// app.get('/getdata', function(rec, res) {
+//     axios.get('https://api.shortboxed.com/comics/v1/new')
+//         .then(function (results) {
+//             res.json(results.data);
+//             // console.log(results.data);
+//         });
+// });
+
+app.get('/getdata', function(rec, res) {
+    axios.get('http://comicvine.gamespot.com/api/issues/?api_key=b96bcd49606624fe3b165ed3a326027f492c9b40&filter=issue_number:80,name:Flash&format=json')
+        .then(function (results) {
+            res.json(results.data);
+            // console.log(results.data);
+        });
+});
 
 // Send all other requests to react app
 app.get('*', (req, res) => {
