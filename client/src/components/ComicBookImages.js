@@ -1,6 +1,6 @@
 import React from 'react';
 import './ComicBookImages.css';
-
+import axios from 'axios';
 
 const ComicBookImages = (props) => {
 
@@ -14,6 +14,7 @@ const ComicBookImages = (props) => {
 
     const addToCollection = (item) => {
         console.log(`Clicked Add to Collection Button for ${item.id}`);
+        axios.post('/api/collected', {comic: item});
     };
 
     return (
@@ -27,7 +28,7 @@ const ComicBookImages = (props) => {
                         <p>Issue ID: {item.id}</p>
                         <p>Title: {item.name}</p>
                         <p>Cover Date: {item.cover_date}</p>
-                        <button onClick={() => addToCollection(item)}color='blue' type='submit'>Add to Collection</button>
+                        <button onClick={() => addToCollection(item)} color='blue' type='submit'>Add to Collection</button>
                         <br />
                     </div>
                 );
