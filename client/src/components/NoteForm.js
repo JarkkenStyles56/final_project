@@ -3,36 +3,22 @@ import axios from 'axios';
 import ComicBookImages from './ComicBookImages';
 
 const NoteForm = (props) => {
-    // const { didSubmit } = props;
     const [issueNumber, setIssueNumber] = useState('');
     const [comicName, setComicName] = useState('');
     const [coverDate, setCoverDate] = useState('');
-    const [issueNumberResults, setIssueNumberResults] = useState('');
+
+    const [results, setResults] = useState([]);
 
     const [comicNameCheckbox, setComicNameCheckbox] = useState(false);
     const [coverDateCheckbox, setCoverDateCheckbox] = useState(false);
 
-    const [comicImages, setComicImages] = useState([]);
-
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    //     // submitNote();
-    // };
     
     const apiCall = (event) => {
         event.preventDefault();
         axios.get(`https://cors-anywhere.herokuapp.com/http://comicvine.gamespot.com/api/issues/?api_key=b96bcd49606624fe3b165ed3a326027f492c9b40&filter=issue_number:${issueNumber}${comicNameCheckbox ? ',name:'+comicName : ''}${coverDateCheckbox ? ',cover_date:'+coverDate : ''}&format=json`)
-            .then(results => {
-                console.log(results);
-                setIssueNumberResults(results.data.results.length);
-                
-                const comicImagesArray = [];
-                for(let i = 0; i < results.data.results.length; i++) {
-                    comicImagesArray.push(results.data.results[i].image.original_url);
-                    console.log(comicImages);
-                } 
-
-                setComicImages(comicImagesArray);          
+            .then(({data}) => {                
+                const {results} = data;
+                setResults(results);
             });
 
     };
@@ -95,12 +81,13 @@ const NoteForm = (props) => {
                 <button type='submit'>Search</button>
                 <br />
                 <br />
-                <p>  # of Issues: {issueNumberResults}</p>
+                <p>  # of Issues: {results.length}</p>
                 <br />
                 <br />
             </form>
 
-            <ComicBookImages img={comicImages} />
+            <ComicBookImages results={results} />
+
         </div>
     );
 };
