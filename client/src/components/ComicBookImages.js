@@ -4,18 +4,24 @@ import './ComicBookImages.css';
 
 const ComicBookImages = (props) => {
 
-    const styles = {
-        comicImage: {
-            backgroundColor: 'blue'
-        }
+    // const styles = {
+    //     comicImage: {
+    //         backgroundColor: 'blue'
+    //     }
         
+    // };
+
+
+    const addToCollection = (event) => {
+        event.preventDefault();
+        console.log('Clicked Add to Collection Button');
     };
 
     return (
-        <div>
+        <div onSubmit={addToCollection}>
             {props.img.map((item) => {
                 return (
-                    <div key={item} style={styles.comicImage} heigth={200} width={200}>
+                    <div key={item}>
                         <img src={item} alt="" heigth={200} width={200} />
                         <br />
                         <button color='blue' type='submit'>Add to Collection</button>
