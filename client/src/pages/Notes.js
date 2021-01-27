@@ -23,7 +23,7 @@ const Notes = function () {
     }
     return (
         <div>
-            <h2>Notes</h2>
+            
             <ol>
                 {notes.map(note => {
                     return (

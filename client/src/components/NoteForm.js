@@ -39,7 +39,8 @@ const NoteForm = (props) => {
 
     return (
         <div>
-            <h2>Note Form</h2>
+            <h2>Search for Comics!</h2>
+            <br/>
             <form onSubmit={apiCall}>
                 {/* Search by Issue Number Field*/}
                 <label htmlFor="issueNumber">Issue Number:</label>
