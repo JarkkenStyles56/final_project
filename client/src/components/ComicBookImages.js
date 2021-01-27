@@ -8,23 +8,27 @@ const ComicBookImages = (props) => {
     //     comicImage: {
     //         backgroundColor: 'blue'
     //     }
-        
+
     // };
 
 
-    const addToCollection = (event) => {
-        event.preventDefault();
-        console.log('Clicked Add to Collection Button');
+    const addToCollection = (item) => {
+        console.log(`Clicked Add to Collection Button for ${item.id}`);
     };
 
     return (
-        <div onSubmit={addToCollection}>
-            {props.img.map((item) => {
+        <div>
+            {/* Working Code */}
+            {props.results.map((item) => {
                 return (
-                    <div key={item}>
-                        <img src={item} alt="" heigth={200} width={200} />
+                    <div key={item.id}>
+                        <img src={item.image.small_url} alt="" heigth={200} width={200} />
+                        <p>Issue #: {item.issue_number}</p>
+                        <p>Issue ID: {item.id}</p>
+                        <p>Title: {item.name}</p>
+                        <p>Cover Date: {item.cover_date}</p>
+                        <button onClick={() => addToCollection(item)}color='blue' type='submit'>Add to Collection</button>
                         <br />
-                        <button color='blue' type='submit'>Add to Collection</button>
                     </div>
                 );
             })}
