@@ -3,16 +3,8 @@ import './ComicBookImages.css';
 import axios from 'axios';
 
 const ComicBookImages = (props) => {
-
-    // const styles = {
-    //     comicImage: {
-    //         backgroundColor: 'blue'
-    //     }
-
-    // };
-
-
     const addToCollection = (item) => {
+        alert('Comic added to your collection');
         console.log(`Clicked Add to Collection Button for ${item.id}`);
         axios.post('/api/collected', {comic: item});
     };
