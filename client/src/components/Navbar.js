@@ -20,10 +20,13 @@ const Navbar = () => {
                             <Link to="/">Home</Link>
                         </li>
                         &nbsp; &nbsp;
-                        <li class="nav-item"><Link to='/notes'>Notes</Link></li>
+                        <li class="nav-item"><Link to='/notes'>Search</Link></li>
                         &nbsp; &nbsp;
+
+                        <li class="nav-item"><Link to='/collection'>My Collection</Link></li>
+                        &nbsp; &nbsp;
+
                         {isLoggedIn() ?
-                               
                             <>
                                 <li class="nav-item"> <Link onClick={() => logout()} to='/'>Logout</Link></li>
                             </>
@@ -35,11 +38,10 @@ const Navbar = () => {
                             </>}
                             &nbsp; &nbsp; &nbsp; &nbsp;
                         {isLoggedIn() &&
-                             <span class="navbar-text">
-                                 <li>Hello, {getProfile().email}</li>
-                             </span> }
+                            <span class="navbar-text">
+                                <li>Hello, {getProfile().email}</li>
+                            </span>}
                     </ul>
-                    
                 </div>
             </div>
         </nav>
@@ -47,26 +49,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-// <div>
-//     <h3>Navbar</h3>
-//     <ul>
-//         <li><Link to="/">Home</Link></li>
-//         <li><Link to='/notes'>Notes</Link></li>
-//         {isLoggedIn() ?
-//             <>
-//                 <li>Hello, {getProfile().email}</li>
-//                 <li><Link onClick={() => logout()} to='/'>Logout</Link></li>
-//             </>
-//             :
-//             <>
-//                 <li><Link to="/signup">Signup</Link></li>
-//                 <li><Link to="/login">Login</Link></li>
-//             </>
-//         }
-
-//     </ul>
-// </div>
-   
 
