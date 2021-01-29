@@ -6,7 +6,7 @@ import useAuth from './hooks/auth';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Notes from './pages/Notes';
+import Search from './pages/Search';
 import CollectionPage from './pages/myCollection';
 
 
@@ -45,8 +45,8 @@ function App() {
                 <Route path='/login'>
                     <Login />
                 </Route>
-                <PrivateRoute exact path='/notes'>
-                    <Notes />
+                <PrivateRoute exact path='/search'>
+                    <Search />
                 </PrivateRoute>
                 <PrivateRoute exact path='/collection'>
                     <CollectionPage />

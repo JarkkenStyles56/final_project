@@ -28,12 +28,23 @@ router.get('/:id', isAuthenticated, function (req, res) {
  * We need the isAuthenticated middleware in the route to have a user in the request
  */
 router.post('/', isAuthenticated, function (req, res) {
-    db.Collected.create({
+    db.Collected.find({
         user: req.user._id,
-        ...req.body
+        'comic.id': req.body.comic.id,
     })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        .then(found => {
+            console.log(found, req.body.comic.id);
+            if (found.length) {
+                res.status(404).send('Already in Collection');
+            } else {
+                db.Collected.create({
+                    user: req.user._id,
+                    ...req.body
+                })
+                    .then(dbModel => res.json(dbModel))
+                    .catch(err => res.status(422).json(err));
+            }
+        });
 });
 
 /**

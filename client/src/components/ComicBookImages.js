@@ -4,9 +4,12 @@ import axios from 'axios';
 
 const ComicBookImages = (props) => {
     const addToCollection = (item) => {
-        alert('Comic added to your collection');
+
         console.log(`Clicked Add to Collection Button for ${item.id}`);
-        axios.post('/api/collected', {comic: item});
+        axios.post('/api/collected', { comic: item })
+            .then(res => {
+                console.log(res);
+            }).catch(err => alert(err));
     };
 
     return (

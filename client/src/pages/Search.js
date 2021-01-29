@@ -3,7 +3,7 @@ import axios from 'axios';
 import NoteForm from '../components/NoteForm';
 // import ComicBook from '../components/ComicBook';
 
-const Notes = function () {
+const Search = function () {
     const [notes, setNotes] = useState([]);
     // so we can refresh the Page *after* we get a response back from the server on our new note!
     const [refresh, toggleRefresh] = useState(0);
@@ -40,4 +40,4 @@ const Notes = function () {
     );
 };
 
-export default Notes;
+export default Search;
