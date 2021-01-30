@@ -6,6 +6,7 @@ import useAuth from './hooks/auth';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Jumbotron from '../src/components/Jumbotron';
 import Search from './pages/Search';
 import CollectionPage from './pages/myCollection';
 
@@ -35,6 +36,7 @@ function App() {
     return (
         <Router>
             <Navbar />
+            <Jumbotron/>
             <Switch>
                 <Route exact path='/'>
                     <Home />
