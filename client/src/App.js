@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
+import Jumbotron from '../src/components/Jumbotron';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
     return (
         <Router>
             <Navbar />
+            <Jumbotron/>
             <Switch>
                 <Route exact path='/'>
                     <Home />
