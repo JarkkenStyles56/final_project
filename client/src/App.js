@@ -6,7 +6,6 @@ import useAuth from './hooks/auth';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Notes from './pages/Notes';
 import Jumbotron from '../src/components/Jumbotron';
 import Search from './pages/Search';
 import CollectionPage from './pages/myCollection';
