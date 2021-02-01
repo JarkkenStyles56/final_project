@@ -18,7 +18,7 @@ const ComicBookImages = (props) => {
             {props.results.map((item) => {
                 return (
                     <div key={item.id}>
-                        <img src={item.image.small_url} alt="" heigth={200} width={200} />
+                        <img src={item.image.small_url} alt="" height={200} width={200} />
                         <p>Issue #: {item.issue_number}</p>
                         <p>Issue ID: {item.id}</p>
                         <p>Title: {item.name}</p>
