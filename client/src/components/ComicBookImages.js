@@ -1,5 +1,4 @@
 import React from 'react';
-import './ComicBookImages.css';
 import axios from 'axios';
 
 const ComicBookImages = (props) => {
